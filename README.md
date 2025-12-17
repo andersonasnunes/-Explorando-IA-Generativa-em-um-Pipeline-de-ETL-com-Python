@@ -6,35 +6,37 @@ O objetivo é **educacional e prático**, simulando um cenário real de mercado 
 
 ---
 
-## 🧩 Tecnologias Utilizadas
+## 🧩 Visão Geral do Pipeline ETL
 
-- ☕ Java 17  
-- 🌱 Spring Boot  
-- 🗄️ H2 Database (em memória)  
-- 📘 Swagger / OpenAPI  
-- 🌐 ngrok  
-- 🧠 OpenAI API  
-- 🐍 Python  
-- 📓 Google Colab  
-- 📦 Maven  
+### 🔹 Extração (Extract)
+- Leitura de **IDs de usuários** a partir de uma planilha .csv
+- Consumo da **API da Santander Dev Week 2023**
+- Obtenção de dados detalhados de usuários via **requisições HTTP**
+
+### 🔹 Transformação (Transform)
+- Tratamento e organização dos dados
+- Integração com o **GPT-4 da OpenAI**
+- Geração automática de **mensagens personalizadas**
+- Aplicação prática de **IA Generativa** em um fluxo de dados
+
+### 🔹 Carregamento (Load)
+- Envio das mensagens geradas de volta para a API
+- Persistência das informações transformadas
+- Conclusão do ciclo ETL
 
 ---
 
-## 🏗️ Arquitetura do Projeto
+## 🛠️ Tecnologias Utilizadas
 
-```text
-Google Colab (Python + OpenAI)
-        |
-        |  HTTP (ngrok)
-        v
-ngrok (URL pública)
-        |
-        v
-Spring Boot API (localhost:8080)
-        |
-        v
-Banco H2 (em memória)
-```
+- ☕ **Java 17**: Backend da API  
+- 🗄️ **H2 Database**: Banco de dados em memória para testes  
+- 📘 **Swagger**: Documentação e testes da API  
+- 🌐 **ngrok**: Exposição da API local para acesso externo  
+- 🧠 **OpenAI API**: Geração de conteúdo com Inteligência Artificial  
+- 🐍 **Python**: Pipeline ETL e integração de dados
+- 📊 **Pandas**: Manipulação, tratamento e transformação de dados no pipeline   
+- 📓 **Google Colab**: Execução e testes do pipeline em nuvem
+
 ---
 
 ## 🗄️ Banco de Dados – H2
@@ -86,6 +88,8 @@ A API segue o modelo proposto pela **Santander Dev Week**, com a entidade princi
   "news": []
 }
 ```
+---
+
 ## 📘 Swagger (Documentação da API)
 
 O Swagger é utilizado para documentar e testar os endpoints da API.
@@ -111,7 +115,6 @@ ngrok http 8080
 
 ### Exemplo de URL gerada
 https://xxxxxx.ngrok-free.dev
-
 
 Essa URL é usada no **Google Colab** para consumir a API remotamente.
 
@@ -154,16 +157,6 @@ import requests
 from openai import OpenAI
 
 ```
-
-## ❗ Problemas Comuns Resolvidos
-
-- ❌ **Retorno `[]`** → uso incorreto de `localhost` no Google Colab  
-- ❌ **Erro 404** → usuário não existente  
-- ❌ **Erro OpenAI v1** → migração para a nova versão da API  
-- ❌ **Erro ngrok** → falta de configuração do authtoken  
-
-Todos esses cenários fazem parte do aprendizado proposto pelo projeto.
-
 ---
 
 ## 🎯 Objetivo Educacional
@@ -179,10 +172,22 @@ Este projeto foi desenvolvido para:
 
 ---
 
+## 📌 Contexto Profissional
+
+Este projeto faz parte do meu portfólio profissional e tem como objetivo demonstrar minhas habilidades em:
+
+Ciência de Dados  
+Engenharia de Dados (nível inicial/intermediário)  
+Integração de Inteligência Artificial em soluções reais  
+
+---
+
 ## 🧑‍💻 Autor
 
 **Anderson Nunes**  
 Desenvolvedor | Educador | Engenheiro de Software
+
+
 
 ---
 
@@ -194,5 +199,4 @@ Este projeto une **backend moderno**, **inteligência artificial** e **integraç
 - Docker
 - Deploy em nuvem
 - Autenticação JWT
-
 
